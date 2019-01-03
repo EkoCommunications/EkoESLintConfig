@@ -1,0 +1,33 @@
+{
+  "name": "eslint-config-eko",
+  "version": "0.1.0",
+  "description": "Eslint configuration for Eko JS apps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/EkoCommunications/EkoESLint.git"
+  },
+  "keywords": [
+    "eslint",
+    "eko",
+    "ekoapp"
+  ],
+  "author": "eko-communications",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EkoCommunications/EkoESLint/issues"
+  },
+  "homepage": "https://github.com/EkoCommunications/EkoESLint#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.15.3"
+  }
+}
