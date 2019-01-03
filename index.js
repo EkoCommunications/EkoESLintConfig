@@ -14,21 +14,92 @@ module.exports = {
   },
   globals: {},
   rules: {
-    // TOOD We should fix this at the webpack level
-    // Ensures that eslint can find our custom prefix '~'
+    // ========== CORE ==========
+    // Ref: https://eslint.org/docs/rules/no-underscore-dangle
+    // Airbnb:
+    // 'no-underscore-dangle': ['error', {
+    //   allow: [],
+    //   allowAfterThis: false,
+    //   allowAfterSuper: false,
+    //   enforceInMethodNames: true,
+    // }],
+    //
+    // We use an underscore dangle to mark private and protected variables and methods of a class.
+    // Thats why we need `allowAfterThis`, `allowAfterSuper`, `enforceInMethodNames` to be enabled.
+    'no-underscore-dangle': [
+      'error',
+      {
+        allow: [],
+        allowAfterThis: true,
+        allowAfterSuper: true,
+        // enforceInMethodNames: true, // available in last version
+      },
+    ],
+
+    // Ref: https://eslint.org/docs/rules/no-unused-expressions
+    // Airbnb:
+    // 'no-unused-expressions': ['error', {
+    //   allowShortCircuit: false,
+    //   allowTernary: false,
+    //   allowTaggedTemplates: false,
+    // }],
+    //
+    // We re-define the rule as we use short circuit syntax: b && b().
+    // Mostly to call disposers of mobx `observe`, `reaction`, `when` etc. Sometimes we define them conditionally and
+    // need call on a component unmount if a disposer exist: dispose && dispose();
+    'no-unused-expressions': [
+      'error',
+      {
+        allowShortCircuit: true,
+        allowTernary: false,
+        allowTaggedTemplates: false,
+      },
+    ],
+
+    // TODO: come back to it when we start to extend prettier recommended
+    // Need to handle a case with Joi Models
+    'newline-per-chained-call': 'off',
+    // ========== END CORE ==========
+
+
+    // ========== IMPORT ==========
+    // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
+    // Enforces the addition of file extensions when importing.
+    'import/extensions': [
+      'error',
+      'never',
+      {
+        'svg': 'always',
+        'png': 'always',
+      },
+    ],
+
+    // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
+    // TODO: We should fix this at the webpack level - remove 'ignore' and use 'babel-plugin-root-import'
     'import/no-unresolved': ['error', { ignore: ['^[~]'] }],
 
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
+    // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
     // Allow `export const` without a export default from a module
     // The reason we chose this to be allowed is because we'd like some modules to
     // export only certain functions. Enforcing a `export default` will likely cause
-    // more issues and boilerplate code
+    // more issues and boilerplate code.
     'import/prefer-default-export': 'off',
+    // ========== END IMPORT ==========
 
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
+
+    // ========== JSX-A11Y ==========
+    // Ref: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
     // From eslint-plugin-jsx-a11y
     // This rule was deprecated in v6.1.0. It will no longer be maintained.
     // Please use label-has-associated-control instead.
+    // But airbnb still describe it
+    //  airbnb - 'jsx-a11y/label-has-for': ['error', {
+    //   components: [],
+    //   required: {
+    //     every: ['nesting', 'id'],
+    //   },
+    //   allowChildren: false,
+    // }],
     // We might should just relay on airbnb - we barely use Label + Input as we use antd decorator where they
     // only id to bind label and input (no nesting)
     // We can also redefine rule with 'every: ['id']', (do not require nesting) to be consistent with antd
@@ -37,56 +108,11 @@ module.exports = {
       {
         components: [],
         required: {
-          every: ['nesting', 'id'],
+          every: ['id'],
         },
         allowChildren: false,
       },
     ],
-
-    // must be enabled or at least use 'warn'
-    'no-console': 'warn',
-
-    // https://eslint.org/docs/rules/no-unused-expressions
-    // const a = b && b()
-    // undefined = b && b() We've chosen this one @Jenya @David
-    // if (b instanceof Function) b()
-    // { test && <Component /> }
-    // We need allowShortCircuit: true, as we use b && b() expressins sometimes.
-    'no-unused-expressions': [
-      'error',
-      {
-        allowShortCircuit: true,
-      },
-    ],
-
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prop-types.md
-    // We should enable this rule, but considering that a lot of components now does not have proptypes we can
-    // define 'skipUndeclared: false' - switching it to true and enforce proptypes should go as separate PR
-    // Maybe only exported components? @will @Jenya
-    'react/prop-types': [
-      'error',
-      {
-        ignore: [],
-        customValidators: [],
-        skipUndeclared: false,
-      },
-    ],
-
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
-    // airbnb: 'react/self-closing-comp': 'error',
-    // Must not be disabled! We should define additional options:
-    'react/self-closing-comp': 'off',
-
-    // https://eslint.org/docs/rules/no-underscore-dangle
-    // We need this rule enabled with allowAfterThis: true, because we use underscore for private params and methods
-    'no-underscore-dangle': [
-      'error',
-      {
-        allow: [],
-        allowAfterThis: true,
-        allowAfterSuper: true,
-        // enforceInMethodNames: true,
-      },
-    ],
+    // ========== END JSX-A11Y ==========
   },
 };
