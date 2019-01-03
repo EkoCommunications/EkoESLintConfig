@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['airbnb', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'eslint-config-prettier'],
   env: {
     es6: true,
     browser: true,
@@ -62,7 +62,6 @@ module.exports = {
     'newline-per-chained-call': 'off',
     // ========== END CORE ==========
 
-
     // ========== IMPORT ==========
     // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
     // Enforces the addition of file extensions when importing.
@@ -70,8 +69,8 @@ module.exports = {
       'error',
       'never',
       {
-        'svg': 'always',
-        'png': 'always',
+        svg: 'always',
+        png: 'always',
       },
     ],
 
@@ -86,7 +85,6 @@ module.exports = {
     // more issues and boilerplate code.
     'import/prefer-default-export': 'off',
     // ========== END IMPORT ==========
-
 
     // ========== JSX-A11Y ==========
     // Ref: https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/label-has-for.md
