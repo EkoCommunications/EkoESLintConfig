@@ -29,7 +29,7 @@ module.exports = {
     'no-underscore-dangle': [
       'error',
       {
-        allow: [],
+        allow: ['_id'],
         allowAfterThis: true,
         allowAfterSuper: true,
         // enforceInMethodNames: true, // available in last version
