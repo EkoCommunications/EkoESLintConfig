@@ -14,12 +14,6 @@ module.exports = {
   },
   globals: {},
   rules: {
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    // Enforces the addition of file extensions when importing
-    // https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unresolved.md
-    // should remove ignore and use setting "babel-plugin-root-import". Not sure that babel-root-import
-    'import/extensions': 'never',
-
     // TOOD We should fix this at the webpack level
     // Ensures that eslint can find our custom prefix '~'
     'import/no-unresolved': ['error', { ignore: ['^[~]'] }],
@@ -91,7 +85,7 @@ module.exports = {
         allow: [],
         allowAfterThis: true,
         allowAfterSuper: true,
-        enforceInMethodNames: true,
+        // enforceInMethodNames: true,
       },
     ],
   },
