@@ -29,6 +29,7 @@ module.exports = {
     'no-underscore-dangle': [
       'error',
       {
+        // _id - MongoDB id, convention forced by backend
         allow: ['_id'],
         allowAfterThis: true,
         allowAfterSuper: true,
