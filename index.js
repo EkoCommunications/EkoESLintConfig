@@ -60,6 +60,14 @@ module.exports = {
     // TODO: come back to it when we start to extend prettier recommended
     // Need to handle a case with Joi Models
     'newline-per-chained-call': 'off',
+
+    // Ref: https://eslint.org/docs/rules/no-prototype-builtins
+    // Eslint reasoning: https://github.com/eslint/eslint/issues/7071
+    // Airbnb: 'no-prototype-builtins': 'error',
+    // Example (if enable): obj.hasOwnProperty(key) => (should be) Object.prototype.hasOwnProperty.call(obj, key)
+    //
+    // We prefer to get Error and get aware of the wrong usage. It is much better then silently hadle dangerous code.
+    'no-prototype-builtins': 'off',
     // ========== END CORE ==========
 
     // ========== IMPORT ==========
