@@ -68,6 +68,13 @@ module.exports = {
     //
     // We prefer to get Error and get aware of the wrong usage. It is much better then silently hadle dangerous code.
     'no-prototype-builtins': 'off',
+
+    // Ref: https://eslint.org/docs/rules/consistent-return
+    // Airbnb: 'consistent-return': 'error'
+    //
+    // TODO: Until we decide, do we want to do `return null` explicitly from function or we stick with
+    // `return undefined`, we disable this rule.
+    'consistent-return': 'off',
     // ========== END CORE ==========
 
     // ========== IMPORT ==========
