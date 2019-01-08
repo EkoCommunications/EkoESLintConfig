@@ -75,6 +75,13 @@ module.exports = {
     // TODO: Until we decide, do we want to do `return null` explicitly from function or we stick with
     // `return undefined`, we disable this rule.
     'consistent-return': 'off',
+
+    // Ref: https://eslint.org/docs/rules/semi
+    // Airbnb: ['error', 'always']
+    //
+    // Airbnb definition the same, but by some reason rule does not work without defining it here. Might prettier
+    // config interferes
+    semi: ['error', 'always'],
     // ========== END CORE ==========
 
     // ========== IMPORT ==========
