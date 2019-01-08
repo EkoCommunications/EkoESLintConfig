@@ -84,6 +84,8 @@ module.exports = {
       'error',
       'never',
       {
+        mp3: 'always',
+        mp4: 'always',
         svg: 'always',
         png: 'always',
       },
