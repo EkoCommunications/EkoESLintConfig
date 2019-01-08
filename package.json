@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-eko",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Eslint configuration for Eko JS apps",
   "main": "index.js",
   "scripts": {
