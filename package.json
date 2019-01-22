@@ -4,8 +4,7 @@
   "description": "Eslint configuration for Eko JS apps",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm install --save-dev eslint-config-airbnb",
-    "test": "eslint ./index.js --fix"
+    "test": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -24,23 +23,19 @@
   "homepage": "https://github.com/EkoCommunications/EkoESLint#readme",
   "dependencies": {},
   "peerDependencies": {
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint": "^5.11.1",
+    "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.2",
     "prettier": "^1.15.3"
   },
   "devDependencies": {
     "eslint": "^5.11.1",
-    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.2",
     "prettier": "^1.15.3"
   }
 }
