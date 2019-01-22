@@ -70,21 +70,6 @@ In package.json:
 * Provide Airbnb declaration (and they reasoning).
 * Provide explanation why the desicion to alter a rule was made.
 
-## Publish (!!!at first you will need to get access!!!)
-
-At first make sure that you increased version. You can also check last published packages by:
-`npm dist-tag list`
-
-To publish
-`npm publish .`
-
-To publish `develop`, `test` etc version:
-`npm publish . --tag <dist-tag-name>`
-
-For example: `npm publish . --tag develop`
-After that you will be able to install `develop` by from a target project:
-`npm install eslint-config-eko@develop`
-
 ## TODO:
 * [GraphQL subset](https://github.com/apollographql/eslint-plugin-graphql)
 * [Jest subset](https://github.com/jest-community/eslint-plugin-jest)
