@@ -71,8 +71,15 @@ In package.json:
 
 ### import/no-unresolved and root path synonym
 
-If you want to use root synonyms like :
-`import Example from '../../../some/example.js'; => import Example from '~/some/example.js';`
+If you want to use root synonyms like:
+
+```
+// from
+import Example from '../../../some/example.js';
+
+// to
+import Example from '~/some/example.js';
+```
 
 Run:
 `npm i --save-dev babel-plugin-root-import eslint-import-resolver-babel-plugin-root-import`
