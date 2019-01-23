@@ -1,15 +1,21 @@
 module.exports = {
   rules: {
     // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/extensions.md
-    // Enforces the addition of file extensions when importing.
+    // Airbnb:
+    // 'import/extensions': ['error', 'ignorePackages', {
+    //   js: 'never',
+    //   mjs: 'never',
+    //   jsx: 'never',
+    // }],
+    //
+    // We settle with same config as airbnb, without the ignoringPackages option.
     'import/extensions': [
       'error',
-      'never',
+      'always',
       {
-        mp3: 'always',
-        mp4: 'always',
-        svg: 'always',
-        png: 'always',
+        js: 'never',
+        mjs: 'never',
+        jsx: 'never',
       },
     ],
 
