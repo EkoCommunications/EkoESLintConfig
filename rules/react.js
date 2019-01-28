@@ -294,7 +294,5 @@ module.exports = {
     // Proposed:
     // To better align arrow function body
     // 'implicit-arrow-linebreak': 'error',
-
-    // TODO: +++++++ 5 +++++++++
   },
 };
