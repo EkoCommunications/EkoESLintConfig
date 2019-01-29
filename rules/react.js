@@ -105,33 +105,6 @@ module.exports = {
     // expecially when data is client side derived.
     'react/no-array-index-key': 'warn',
 
-    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
-    // AirBnB
-    // 'react/jsx-max-props-per-line': [
-    //   'error',
-    //   {
-    //     maximum: 1,
-    //     when: 'multiline',
-    //   },
-    // ],
-    //
-    // Set to "always" so that new props will always on new line if there are more than 1 prop
-    'react/jsx-max-props-per-line': [
-      'error',
-      {
-        maximum: 1,
-        when: 'always',
-        // Will warn:
-        // <Component isSingle life={isProgrammer ? undefined : 'hard'} />
-  
-        // Enforce into:
-        // <Component
-        //   isSingle
-        //   life={isProgrammer ? undefined : 'hard'}
-        // />
-      },
-    ],
-
     // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
     // AirBnB
     // 'react/jsx-sort-props': ['off', {
@@ -294,5 +267,32 @@ module.exports = {
     // Proposed:
     // To better align arrow function body
     // 'implicit-arrow-linebreak': 'error',
+
+    // TODO: +++++++ 5 +++++++++
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-max-props-per-line.md
+    // AirBnB
+    // 'react/jsx-max-props-per-line': [
+    //   'error',
+    //   {
+    //     maximum: 1,
+    //     when: 'multiline',
+    //   },
+    // ],
+    //
+    // Set to "always" so that new props will always on new line if there are more than 1 prop
+    // BAD:
+    // <Component isSingle life={isProgrammer ? undefined : 'hard'} />
+    // GOOD:
+    // <Component
+    //   isSingle
+    //   life={isProgrammer ? undefined : 'hard'}
+    // />
+    // 'react/jsx-max-props-per-line': [
+    //   'error',
+    //   {
+    //     maximum: 1,
+    //     when: 'always',
+    //   },
+    // ],
   },
 };
