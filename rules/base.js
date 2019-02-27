@@ -15,6 +15,14 @@ module.exports = {
     // Continue can be useful and create clean code in multiple use cases
     // Airbnb doesn't like loops in general, but for certain functions they
     // must be used. Showing errors for creating clean code is bad
+    // while (iAmStillProcessing) {
+    //   if (iShouldSkipThisLoop) {
+    //     continue;
+    //   }
+    //
+    //   ... do lots of other stuff
+    //   ...
+    // }
     'no-continue': 'off',
 
     // Ref: https://eslint.org/docs/rules/no-underscore-dangle
