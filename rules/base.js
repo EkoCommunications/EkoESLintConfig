@@ -11,6 +11,12 @@ module.exports = {
     expect: true,
   },
   rules: {
+    // Ref: https://eslint.org/docs/rules/no-continue
+    // Continue can be useful and create clean code in multiple use cases
+    // Airbnb doesn't like loops in general, but for certain functions they
+    // must be used. Showing errors for creating clean code is bad
+    'no-continue': 'off',
+
     // Ref: https://eslint.org/docs/rules/no-underscore-dangle
     // Airbnb:
     // 'no-underscore-dangle': ['error', {
