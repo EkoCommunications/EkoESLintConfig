@@ -53,28 +53,6 @@ module.exports = {
       },
     ],
 
-    // Ref: https://eslint.org/docs/rules/no-unused-expressions
-    // Airbnb:
-    // 'no-unused-vars': ['error', {
-    //   vars: 'all',
-    //   args: 'after-used',
-    //   ignoreRestSiblings: false,
-    // }],
-    //
-    // We want to be sure to allow unused vars if the developer specifically allows them
-    // It's annoying when we want to use a map over the index, but have to tell eslint every time
-    'no-unused-vars': [
-      'error',
-      {
-        vars: 'all',
-        args: 'after-used',
-        ignoreRestSiblings: false,
-        // Allows us to use _ as an ignored name
-        // For example [].map((_, index) => index)
-        argsIgnorePattern: '^_',
-      },
-    ],
-
     // TODO: come back to it when we start to extend prettier recommended
     // Need to handle a case with Joi Models
     'newline-per-chained-call': 'off',
