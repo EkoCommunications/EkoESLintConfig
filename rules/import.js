@@ -1,6 +1,7 @@
 module.exports = {
   rules: {
     // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/prefer-default-export.md
+    //
     // Airbnb:
     // 'import/prefer-default-export': 'error'
     //

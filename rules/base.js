@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     // Ref: https://eslint.org/docs/rules/no-underscore-dangle
+    //
     // Airbnb:
     // 'no-underscore-dangle': ['error', {
     //   allow: [],
@@ -34,6 +35,7 @@ module.exports = {
     ],
 
     // Ref: https://eslint.org/docs/rules/no-unused-expressions
+    //
     // Airbnb:
     // 'no-unused-expressions': ['error', {
     //   allowShortCircuit: false,
@@ -42,8 +44,9 @@ module.exports = {
     // }],
     //
     // We re-define the rule as we use short circuit syntax: b && b().
-    // Mostly to call disposers of mobx `observe`, `reaction`, `when` etc. Sometimes we define them conditionally and
-    // need call on a component unmount if a disposer exist: dispose && dispose();
+    // Mostly to call disposers of mobx `observe`, `reaction`, `when` etc. Sometimes we define
+    // them conditionally and need call on a component unmount if a disposer exist:
+    // dispose && dispose();
     'no-unused-expressions': [
       'error',
       {
@@ -53,23 +56,25 @@ module.exports = {
       },
     ],
 
-    // TODO: come back to it when we start to extend prettier recommended
-    // Need to handle a case with Joi Models
-    'newline-per-chained-call': 'off',
-
     // Ref: https://eslint.org/docs/rules/no-prototype-builtins
-    // Eslint reasoning: https://github.com/eslint/eslint/issues/7071
-    // Airbnb: 'no-prototype-builtins': 'error',
-    // Example (if enable): obj.hasOwnProperty(key) => (should be) Object.prototype.hasOwnProperty.call(obj, key)
     //
-    // We prefer to get Error and get aware of the wrong usage. It is much better then silently hadle dangerous code.
+    // Eslint reasoning: https://github.com/eslint/eslint/issues/7071
+    //
+    // Airbnb: 'no-prototype-builtins': 'error',
+    //
+    // Example (if enable):
+    // obj.hasOwnProperty(key) => (should be) Object.prototype.hasOwnProperty.call(obj, key)
+    //
+    // We prefer to get Error and get aware of the wrong usage. It is much better then silently
+    // hadle dangerous code.
     'no-prototype-builtins': 'off',
 
     // Ref: https://eslint.org/docs/rules/consistent-return
+    //
     // Airbnb: 'consistent-return': 'error'
     //
-    // TODO: Until we decide, do we want to do `return null` explicitly from function or we stick with
-    // `return undefined`, we disable this rule.
+    // TODO: Until we decide, do we want to do `return null` explicitly from function or we stick
+    // with `return undefined`, we disable this rule.
     'consistent-return': 'off',
   },
 };
