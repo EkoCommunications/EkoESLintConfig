@@ -25,7 +25,6 @@ module.exports = {
     'import/no-unused-modules': [
       'error',
       {
-        ignoreExports: [],
         missingExports: true,
         unusedExports: true,
       },
