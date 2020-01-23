@@ -45,6 +45,7 @@ module.exports = {
       {
         order: [
           'instance-variables',
+          'static-variables',
           'static-methods',
           'lifecycle',
           '/^on.+$/',
