@@ -103,7 +103,7 @@ module.exports = {
     // Ref: https://eslint.org/docs/rules/require-atomic-updates
     //
     // Airbnb (will be enabled with major update)
-    // 'require-atomic-updates': 'off',
+    // 'require-atomic-updates': 'off'
     //
     // Enabling it ahead. Rule provide good protection for specific edge case.
     'require-atomic-updates': 'error',
@@ -111,9 +111,18 @@ module.exports = {
     // Ref: https://eslint.org/docs/rules/no-import-assign
     //
     // Airbnb (will be enabled with major update)
-    // 'no-import-assign': 'off',
+    // 'no-import-assign': 'off'
     //
     // Enabling it ahead.
     'no-import-assign': 'error',
+
+    // Ref: https://eslint.org/docs/rules/prefer-regex-literals
+    //
+    // Airbnb (will be enabled with major update)
+    // 'prefer-regex-literals': 'off'
+    //
+    // Not an unanimous decision. Decided to enable at this moment and look how it will affect
+    // code base.
+    'prefer-regex-literals': 'error',
   },
 };
