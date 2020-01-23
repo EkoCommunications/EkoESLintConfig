@@ -124,5 +124,13 @@ module.exports = {
     // Not an unanimous decision. Decided to enable at this moment and look how it will affect
     // code base.
     'prefer-regex-literals': 'error',
+
+    // Ref: https://eslint.org/docs/rules/default-param-last
+    //
+    // Airbnb (will be enabled with major update)
+    // 'default-param-last': 'off'
+    //
+    // An unanimous decision. Better to enable it sooner.
+    'default-param-last': 'error',
   },
 };
