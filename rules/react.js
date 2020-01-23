@@ -165,5 +165,12 @@ module.exports = {
     //
     // Good rule. By some reason not enabled by airbnb team.
     'react/jsx-key': ['error', { checkFragmentShorthand: true }],
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+    //
+    // Airbnb (not covered yet)
+    //
+    // An unanimous decision to enable.
+    'react/jsx-no-useless-fragment': 'error',
   },
 };
