@@ -76,5 +76,28 @@ module.exports = {
     // TODO: Until we decide, do we want to do `return null` explicitly from function or we stick
     // with `return undefined`, we disable this rule.
     'consistent-return': 'off',
+
+    // Ref: https://eslint.org/docs/rules/no-continue
+    //
+    // Airbnb:
+    // 'no-continue': 'error'
+    //
+    // Airbnb team reasoning: https://github.com/airbnb/javascript/issues/1103
+    //
+    // Continue can be useful and create clean code in multiple use cases
+    // Airbnb doesn't like loops in general, but for certain functions they
+    // must be used. Showing errors for creating clean code is bad approach.
+    //
+    // while (iAmStillProcessing) {
+    //   if (iShouldSkipThisLoop) {
+    //     continue;
+    //   }
+    //
+    //   ... do lots of other stuff
+    //   ...
+    // }
+    //
+    // https://github.com/airbnb/javascript/issues/1103
+    'no-continue': 'off',
   },
 };
