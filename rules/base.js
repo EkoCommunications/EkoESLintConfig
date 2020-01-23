@@ -148,8 +148,16 @@ module.exports = {
     // Airbnb (will be enabled with major update)
     // 'no-constructor-return': 'off'
     //
-    // Good protection from dumb code.
+    // An unanimous decision.
     'no-constructor-return': 'error',
+
+    // Ref: https://eslint.org/docs/rules/no-setter-return
+    //
+    // Airbnb (will be enabled with major update)
+    // 'no-setter-return': 'off',
+    //
+    // An unanimous decision.
+    'no-setter-return': 'error',
 
     // Ref: https://eslint.org/docs/rules/no-dupe-else-if
     //
