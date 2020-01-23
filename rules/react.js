@@ -146,5 +146,15 @@ module.exports = {
     // Not an unanimous decision: enable but with `element` mode`
     // Reasons: already existing preferences, more consistent.
     'react/jsx-fragments': ['error', 'element'],
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+    //
+    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // 'react/state-in-constructor': ['error', 'always']
+    //
+    // Our current code base is not consistent on this case. Team could not come up with preference.
+    // Decided to disable it and continue to use both cases.
+    // TODO: a subject of a future discussion/effort.
+    'react/state-in-constructor': 'off',
   },
 };
