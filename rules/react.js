@@ -114,7 +114,7 @@ module.exports = {
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
     //
-    // Airbnb (since eslint-config-airbnb-base 17.1.1)
+    // Airbnb (since eslint-config-airbnb 17.1.1)
     // before: 'react/no-multi-comp': ['error', { ignoreStateless: true }],
     // after: 'react/no-multi-comp': 'off',
     //
@@ -127,7 +127,7 @@ module.exports = {
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
     //
-    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // Airbnb (since eslint-config-airbnb 18.0.0)
     // 'react/jsx-props-no-spreading': ['error', {
     //   html: 'enforce',
     //   custom: 'enforce',
@@ -141,7 +141,7 @@ module.exports = {
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
     //
-    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // Airbnb (since eslint-config-airbnb 18.0.0)
     // 'react/jsx-fragments': ['error', 'syntax']
     //
     // Not an unanimous decision: enable but with `element` mode`
@@ -150,7 +150,7 @@ module.exports = {
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
     //
-    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // Airbnb (since eslint-config-airbnb 18.0.0)
     // 'react/state-in-constructor': ['error', 'always']
     //
     // Our current code base is not consistent on this case. Team could not come up with preference.
