@@ -110,5 +110,18 @@ module.exports = {
     // Legacy code heavy use indexes for keys. It is complicated to convert to something else at
     // this point.
     'react/no-array-index-key': 'warn',
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
+    //
+    // Airbnb (since eslint-config-airbnb-base 17.1.1)
+    // before: 'react/no-multi-comp': ['error', { ignoreStateless: true }],
+    // after: 'react/no-multi-comp': 'off',
+    //
+    // Airbnb reasoning: https://github.com/airbnb/javascript/pull/2006
+    //
+    // We never faced the problem with discouragement as Airbnb team describing.
+    // Or we never paid attention to it?
+    // After vote team decided to leave rule as it was.
+    'react/no-multi-comp': ['error', { ignoreStateless: true }],
   },
 };
