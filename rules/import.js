@@ -23,12 +23,21 @@ module.exports = {
     // Team decided to enable now to help catch “dead” components.
     // Expecting extra noise from it during development.
     'import/no-unused-modules': [
-      'off',
+      'error',
       {
         ignoreExports: [],
         missingExports: true,
         unusedExports: true,
       },
     ],
+
+    // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-useless-path-segments.md
+    //
+    // Airbnb
+    // 'import/no-useless-path-segments': ['error', { commonjs: true }],
+    //
+    // Re-defining airbnb to enable `noUselessIndex` option introduced with
+    // eslint-config-import v2.17.0
+    'import/no-useless-path-segments': ['error', { commonjs: true, noUselessIndex: true }],
   },
 };
