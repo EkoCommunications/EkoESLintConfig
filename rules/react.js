@@ -123,5 +123,19 @@ module.exports = {
     // Or we never paid attention to it?
     // After vote team decided to leave rule as it was.
     'react/no-multi-comp': ['error', { ignoreStateless: true }],
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+    //
+    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // 'react/jsx-props-no-spreading': ['error', {
+    //   html: 'enforce',
+    //   custom: 'enforce',
+    //   exceptions: [],
+    // }]
+    //
+    // Decision is enforced by existing legacy code base.
+    // Disabling it to avoid big and bug prone re-writings.
+    // TODO: a subject of a future discussion/effort. After all the rule is a good one.
+    'react/jsx-props-no-spreading': 'off',
   },
 };
