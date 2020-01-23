@@ -156,5 +156,13 @@ module.exports = {
     // Decided to disable it and continue to use both cases.
     // TODO: a subject of a future discussion/effort.
     'react/state-in-constructor': 'off',
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-key.md
+    //
+    // Airbnb
+    // 'react/jsx-key': 'off'
+    //
+    // Good rule. By some reason not enabled by airbnb team.
+    'react/jsx-key': ['error', { checkFragmentShorthand: true }],
   },
 };
