@@ -137,5 +137,14 @@ module.exports = {
     // Disabling it to avoid big and bug prone re-writings.
     // TODO: a subject of a future discussion/effort. After all the rule is a good one.
     'react/jsx-props-no-spreading': 'off',
+
+    // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/bc976b837abeab1dffd90ac6168b746a83fc83cc/docs/rules/jsx-fragments.md
+    //
+    // Airbnb (since eslint-config-airbnb-base 18.0.0)
+    // 'react/jsx-fragments': ['error', 'syntax']
+    //
+    // Not an unanimous decision: enable but with `element` mode`
+    // Reasons: already existing preferences, more consistent.
+    'react/jsx-fragments': ['error', 'element'],
   },
 };
