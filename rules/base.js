@@ -166,5 +166,15 @@ module.exports = {
     //
     // An unanimous decision.
     'no-dupe-else-if': 'error',
+
+    // Ref: https://eslint.org/docs/rules/prefer-exponentiation-operator
+    //
+    // Airbnb (will be enabled with major update)
+    // 'prefer-exponentiation-operator': 'off'
+    //
+    // Infix notation is considered to be more readable and thus more preferable than
+    // the function notation.
+    // Not an unanimous decision.
+    'prefer-exponentiation-operator': 'error',
   },
 };
