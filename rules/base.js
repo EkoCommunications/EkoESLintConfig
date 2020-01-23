@@ -132,5 +132,15 @@ module.exports = {
     //
     // An unanimous decision. Better to enable it sooner.
     'default-param-last': 'error',
+
+    // Ref: https://eslint.org/docs/rules/grouped-accessor-pairs
+    //
+    // Airbnb
+    // 'grouped-accessor-pairs': 'off',
+    //
+    // Overall airbnb guide does not approve usage of getters and setters.
+    // They will probably not enable it.
+    // We are using getters and setters. Having consistent order will be nice.
+    'grouped-accessor-pairs': ['error', 'getBeforeSet'],
   },
 };
