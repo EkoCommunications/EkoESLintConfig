@@ -102,11 +102,18 @@ module.exports = {
 
     // Ref: https://eslint.org/docs/rules/require-atomic-updates
     //
-    // Airbnb
+    // Airbnb (will be enabled with major update)
     // 'require-atomic-updates': 'off',
-    // Airbnb team defined that it will be enabled with major update.
     //
-    // Enabling it now. Rule provide good protection for specific edge case.
+    // Enabling it ahead. Rule provide good protection for specific edge case.
     'require-atomic-updates': 'error',
+
+    // Ref: https://eslint.org/docs/rules/no-import-assign
+    //
+    // Airbnb (will be enabled with major update)
+    // 'no-import-assign': 'off',
+    //
+    // Enabling it ahead.
+    'no-import-assign': 'error',
   },
 };
