@@ -99,5 +99,14 @@ module.exports = {
     //
     // https://github.com/airbnb/javascript/issues/1103
     'no-continue': 'off',
+
+    // Ref: https://eslint.org/docs/rules/require-atomic-updates
+    //
+    // Airbnb
+    // 'require-atomic-updates': 'off',
+    // Airbnb team defined that it will be enabled with major update.
+    //
+    // Enabling it now. Rule provide good protection for specific edge case.
+    'require-atomic-updates': 'error',
   },
 };
