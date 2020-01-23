@@ -10,5 +10,25 @@ module.exports = {
     // export only certain functions. Enforcing a `export default` will likely cause
     // more issues and boilerplate code.
     'import/prefer-default-export': 'off',
+
+    // Ref: https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-unused-modules.md
+    //
+    // Airbnb (will be enabled with major update)
+    // 'import/no-unused-modules': ['off', {
+    //   ignoreExports: [],
+    //   missingExports: true,
+    //   unusedExports: true,
+    // }],
+    //
+    // Team decided to enable now to help catch “dead” components.
+    // Expecting extra noise from it during development.
+    'import/no-unused-modules': [
+      'off',
+      {
+        ignoreExports: [],
+        missingExports: true,
+        unusedExports: true,
+      },
+    ],
   },
 };
