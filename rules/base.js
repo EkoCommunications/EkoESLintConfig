@@ -136,11 +136,27 @@ module.exports = {
     // Ref: https://eslint.org/docs/rules/grouped-accessor-pairs
     //
     // Airbnb
-    // 'grouped-accessor-pairs': 'off',
+    // 'grouped-accessor-pairs': 'off'
     //
     // Overall airbnb guide does not approve usage of getters and setters.
     // They will probably not enable it.
     // We are using getters and setters. Having consistent order will be nice.
     'grouped-accessor-pairs': ['error', 'getBeforeSet'],
+
+    // Ref: https://eslint.org/docs/rules/no-constructor-return
+    //
+    // Airbnb (will be enabled with major update)
+    // 'no-constructor-return': 'off'
+    //
+    // Good protection from dumb code.
+    'no-constructor-return': 'error',
+
+    // Ref: https://eslint.org/docs/rules/no-dupe-else-if
+    //
+    // Airbnb (will be enabled with major update)
+    // 'no-dupe-else-if': 'off'
+    //
+    // An unanimous decision.
+    'no-dupe-else-if': 'error',
   },
 };
