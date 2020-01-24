@@ -22,6 +22,7 @@ module.exports = {
     //
     // Team decided to enable now to help catch “dead” components.
     // Expecting extra noise from it during development.
+    // NOTE: rule does not recognize `module.exports` and can generate extra noise.
     'import/no-unused-modules': [
       'error',
       {
