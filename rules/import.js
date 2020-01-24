@@ -23,6 +23,8 @@ module.exports = {
     // Team decided to enable now to help catch “dead” components.
     // Expecting extra noise from it during development.
     // NOTE: rule does not recognize `module.exports` and can generate extra noise.
+    // NOTE2: there is concerns related to performance. eslint-plugin-import team already were
+    // fixing it but I starting to notice more time consuming for running eslint
     'import/no-unused-modules': [
       'error',
       {
