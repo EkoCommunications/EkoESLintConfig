@@ -16,6 +16,7 @@ Copy `.prettierrc` file into root of your project. Make sure that you do not cha
 ### 1. Insall `eslint-config-eko` and peer-dependencies:
 
 (mandatory: base) `npx install-peerdeps --dev -x "--save-prefix=~" eslint-config-eko`
+
 (optional: react) `npm install --save-dev --save-prefix=~ eslint-config-airbnb@18.0.1 eslint-plugin-jsx-a11y@6.2.3 eslint-plugin-react@7.17.0 eslint-plugin-react-hooks@1.7.0`
 
 ### 2. In `.eslintrc.json` extend eko configuration:
