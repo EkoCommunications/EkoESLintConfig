@@ -13,7 +13,7 @@ Copy `.prettierrc` file into root of your project. Make sure that you do not cha
 
 ## Installation:
 
-### 1. Insall `eslint-config-eko` and peer-dependencies:
+### 1. Install `eslint-config-eko` and peer-dependencies:
 
 (mandatory: base) `npx install-peerdeps --dev -x "--save-prefix=~" eslint-config-eko@2.0.0`
 
@@ -107,8 +107,5 @@ Add to `.eslintrc`:
 - [GraphQL subset](https://github.com/apollographql/eslint-plugin-graphql)
 - [Jest subset](https://github.com/jest-community/eslint-plugin-jest)
 - [lodash subset](https://github.com/wix/eslint-plugin-lodash)
-- [flowtype subset](https://github.com/gajus/eslint-plugin-flowtype)
-- [JSDoc subset](https://github.com/gajus/eslint-plugin-jsdoc)
-  ttps://github.com/wix/eslint-plugin-lodash)
 - [flowtype subset](https://github.com/gajus/eslint-plugin-flowtype)
 - [JSDoc subset](https://github.com/gajus/eslint-plugin-jsdoc)
