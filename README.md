@@ -11,35 +11,24 @@ The package provides 2 sets of rules:
 
 Copy `.prettierrc` file into root of your project. Make sure that you do not change configuration or you will run in a bunch of conflicts between prettier and eslint.
 
-## To install base `eko` rules set:
+## Installation:
 
-### 1. Run npm insall for all required packages and `eslint-config-eko`:
+### 1. Install `eslint-config-eko` and peer-dependencies:
 
-`npm i --save-dev eslint prettier eslint-config-airbnb-base eslint-config-prettier eslint-plugin-import eslint-plugin-prettier eslint-config-eko`
+(mandatory: base) `npx install-peerdeps --dev -x "--save-prefix=~" eslint-config-eko@2.0.0`
 
-### 2. In `.eslintrc.json` extend eko base configuration:
+(optional: react) `npm install --save-dev --save-prefix=~ eslint-config-airbnb@18.0.1 eslint-plugin-jsx-a11y@6.2.3 eslint-plugin-react@7.17.0 eslint-plugin-react-hooks@1.7.0`
+
+### 2. In `.eslintrc.json` extend eko configuration:
 
 ```
 {
-  "extends": "eko"
+  "extends": "eko" - for only base set of rules
+  "extends": "eko/react" - for react set of rules
 }
 ```
 
 ### 3. (if required) To properly support `eslint-plugin-import` please check [resolvers](https://github.com/benmosher/eslint-plugin-import#resolvers) docs.
-
-## To install `eko/react` rules set:
-
-### 1. Follow all previous steps for `eko` base set except:
-
-```
-{
-  "extends": "eko/react"
-}
-```
-
-### 2. Run npm insall for all additional packages to support `react` rules set:
-
-`npm i --save-dev eslint eslint-config-airbnb eslint-plugin-jsx-a11y eslint-plugin-react`
 
 ## (Recommended) Setup project for auto-linting on commit:
 
