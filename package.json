@@ -1,41 +1,47 @@
 {
-  "name": "eslint-config-eko",
-  "version": "2.0.0",
-  "description": "Eslint configuration for Eko JS apps",
+  "name": "eslint-config-amity",
+  "version": "1.0.0",
+  "description": "Eslint configuration for Amity",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . --fix"
+    "lint": "eslint .",
+    "prettier": "prettier --write '**/*.{ts,json,md}'"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/EkoCommunications/EkoESLint.git"
+    "url": "https://github.com/EkoCommunications/EkoESLintConfig.git"
   },
   "keywords": [
     "eslint",
+    "eslintconfig",
     "eko",
-    "ekoapp"
+    "amity"
   ],
-  "author": "Eko Communications",
-  "license": "ISC",
+  "author": "charlie.li@amity.co",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/EkoCommunications/EkoESLint/issues"
+    "url": "https://github.com/EkoCommunications/EkoESLintConfig/issues"
   },
   "homepage": "https://github.com/EkoCommunications/EkoESLint#readme",
-  "dependencies": {},
+  "dependencies": {
+    "@typescript-eslint/parser": "^4.15.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "typescript": "^4.1.5"
+  },
   "peerDependencies": {
-    "eslint": "~6.8.0",
-    "eslint-config-airbnb-base": "~14.0.0",
-    "eslint-config-prettier": "~6.9.0",
-    "eslint-plugin-import": "~2.20.0",
-    "eslint-plugin-prettier": "~3.1.2",
-    "prettier": "~1.19.1"
+    "eslint": ">= 3",
+    "prettier": ">= 1.19.1"
   },
   "devDependencies": {
     "eslint": "~6.8.0",
-    "eslint-config-airbnb-base": "~14.0.0",
-    "eslint-config-prettier": "~6.9.0",
-    "eslint-plugin-import": "~2.20.0",
-    "eslint-plugin-prettier": "~3.1.2",
     "prettier": "~1.19.1"
   }
 }

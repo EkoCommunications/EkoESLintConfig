@@ -1,0 +1,22 @@
+// See VS Code settings in https: //code.visualstudio.com/docs/getstarted/settings#_default-settings
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.format.semicolons": "remove"
+}

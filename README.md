@@ -1,111 +1,150 @@
-# eslint-config-eko
+# eslint-config-amity
 
-Defines set of Eko Javascript eslint rules based on [Airbnb](https://github.com/airbnb/javascript) eslint rules extended by [Prettier plugin](https://github.com/prettier/eslint-plugin-prettier).
+ESLint config for Amity orgnization.
 
-The package provides 2 sets of rules:
+## Install
 
-- `eko` - base js rules, import rules
-- `eko/react` - `eko`, react rules, jsx-a11y rules
+```shell
+yarn add --dev eslint-config-amity eslint prettier
+# npm i --dev eslint-config-amity eslint prettier
+```
 
-## Pre-installation:
+## Usage
 
-Copy `.prettierrc` file into root of your project. Make sure that you do not change configuration or you will run in a bunch of conflicts between prettier and eslint.
+```js
+// .eslintrc.js
 
-## Installation:
+// for javascript project
+{
+  "extends": "amity"
+}
 
-### 1. Install `eslint-config-eko` and peer-dependencies:
+// for typescript project
+{
+  "extends": "amity/typescript"
+}
 
-(mandatory: base) `npx install-peerdeps --dev -x "--save-prefix=~" eslint-config-eko@2.0.0`
-
-(optional: react) `npm install --save-dev --save-prefix=~ eslint-config-airbnb@18.0.1 eslint-plugin-jsx-a11y@6.2.3 eslint-plugin-react@7.17.0 eslint-plugin-react-hooks@1.7.0`
-
-### 2. In `.eslintrc.json` extend eko configuration:
+// for react project
+{
+  "extends": "amity/react"
+}
 
 ```
+
+## Best practice:
+
+### Add `.prettierrc` file at the root of your project
+
+```json
 {
-  "extends": "eko" - for only base set of rules
-  "extends": "eko/react" - for react set of rules
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "quoteProps": "as-needed",
+  "semi": true,
+  "bracketSpacing": true,
+  "arrowParens": "avoid",
+  "printWidth": 120
 }
 ```
 
-### 3. (if required) To properly support `eslint-plugin-import` please check [resolvers](https://github.com/benmosher/eslint-plugin-import#resolvers) docs.
+### For VS code developers, add `.vscode/settings.json` file at the root of your project
 
-## (Recommended) Setup project for auto-linting on commit:
+```json
+// See VS Code settings in https: //code.visualstudio.com/docs/getstarted/settings#_default-settings
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.format.semicolons": "remove"
+}
+```
 
-`npm i --save-dev husky lint-staged`
+### Add package.json `scripts`
+
+```json
+"scripts": {
+  "lint": "eslint . --ext .js,.ts",
+  "lint:fix": "eslint . --ext .js,.ts --fix",
+  "prettier": "prettier --write '{src,test}/**/*.{ts,json,md}'"
+}
+```
+
+### Setup project for auto-linting on commit hooks:
+
+```shell
+yarn add --dev husky lint-staged
+# npm i --dev husky lint-staged
+```
 
 In package.json:
 
-```
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "linters": {
-      "*.{js,jsx}": [
-        "eslint --fix",
-        "git add --force"
-      ],
-      "*.{json,md}": [
-        "prettier --write",
-        "git add --force"
-      ]
-    }
-  },
-```
-
-## Hints
-
-### import/no-unresolved and root path synonym
-
-If you want to use root synonyms like:
-
-```
-// from
-import Example from '../../../some/example.js';
-
-// to
-import Example from '~/some/example.js';
-```
-
-Run:
-`npm i --save-dev babel-plugin-root-import eslint-import-resolver-babel-plugin-root-import`
-
-Add to `.babelrc`:
-
-```
-"plugins": [
-  [
-    "babel-plugin-root-import",
-    {
-      "rootPathPrefix": "~",
-      "rootPathSuffix": "app"
-    }
+```json
+"husky": {
+  "hooks": {
+    "post-commit": "git update-index --again",
+    "pre-commit": "lint-staged",
+    "pre-push": "yarn test",
+    "commit-msg": "commitlint -c .commitlintrc.json -E HUSKY_GIT_PARAMS"
+  }
+},
+"lint-staged": {
+  "*.{ts,js,jsx}": [
+    "yarn prettier",
+    "yarn lint"
+  ],
+  "*.{json,md}": [
+    "yarn prettier"
   ]
-]
+}
 ```
 
-Add to `.eslintrc`:
+### Use `commitlint`
 
+```shell
+yarn add --dev @commitlint/cli @commitlint/config-angular
+# npm i --dev @commitlint/cli @commitlint/config-angular
 ```
-  "settings": {
-    "import/resolver": "babel-plugin-root-import"
-  },
+
+add `.commitlintrc.json` at the root:
+
+```json
+{
+  "extends": ["@commitlint/config-angular"],
+  "rules": {
+    "subject-case": [2, "always", ["sentence-case", "start-case", "pascal-case", "upper-case", "lower-case"]],
+    "type-enum": [
+      2,
+      "always",
+      ["build", "chore", "ci", "docs", "feat", "fix", "perf", "refactor", "revert", "style", "test", "sample"]
+    ]
+  }
+}
 ```
 
-## Thumb ups rules of editing this package subset:
+In package.json:
 
-- Make sure that this is not disabled by `eslint-config-prettier`. If you re-enable it then prettier and eslint might run into conflict.
-- Provide referrence to documentation.
-- Provide Airbnb declaration (and they reasoning).
-- Provide explanation why the desicion to alter a rule was made.
-
-## TODO:
-
-- [GraphQL subset](https://github.com/apollographql/eslint-plugin-graphql)
-- [Jest subset](https://github.com/jest-community/eslint-plugin-jest)
-- [lodash subset](https://github.com/wix/eslint-plugin-lodash)
-- [flowtype subset](https://github.com/gajus/eslint-plugin-flowtype)
-- [JSDoc subset](https://github.com/gajus/eslint-plugin-jsdoc)
+```json
+"husky": {
+  "hooks": {
+    ...
+    "commit-msg": "commitlint -c .commitlintrc.json -E HUSKY_GIT_PARAMS"
+  }
+}
+```
