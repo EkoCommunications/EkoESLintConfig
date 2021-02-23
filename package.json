@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/EkoCommunications/EkoESLint#readme",
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.1",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
