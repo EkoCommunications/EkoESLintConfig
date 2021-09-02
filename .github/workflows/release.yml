@@ -1,0 +1,23 @@
+name: Manual release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Version to release'
+        required: true
+
+jobs:
+  version:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: git config --global user.name 'amity-alfred-bot'
+      - run: git config --global user.email 'developers@amity.co'
+
+      - run: npm ci
+      - run: npm version ${{ github.event.inputs.version_number }}

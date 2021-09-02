@@ -4,7 +4,9 @@
   "description": "Eslint configuration for Eko JS apps",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . --fix",
+    "lint": "eslint . --fix",
+    "test": "eslint .",
+    "preversion": "npm run test",
     "version": "auto-changelog --config ./.autochangelog/config.json && git add CHANGELOG.md",
     "postversion": "git push --follow-tags"
   },
