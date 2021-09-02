@@ -4,7 +4,9 @@
   "description": "Eslint configuration for Eko JS apps",
   "main": "index.js",
   "scripts": {
-    "test": "eslint . --fix"
+    "test": "eslint . --fix",
+    "version": "auto-changelog --config ./.autochangelog/config.json && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,9 @@
     "url": "https://github.com/EkoCommunications/EkoESLint/issues"
   },
   "homepage": "https://github.com/EkoCommunications/EkoESLint#readme",
-  "dependencies": {},
+  "dependencies": {
+    "autochangelog": "^3.0.3"
+  },
   "peerDependencies": {
     "eslint": "~6.8.0",
     "eslint-config-airbnb-base": "~14.0.0",
