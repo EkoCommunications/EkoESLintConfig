@@ -8,5 +8,5 @@ const ekoRules = [
 ];
 
 module.exports = {
-  extends: ['airbnb', 'plugin:prettier/recommended', 'prettier/react', ...ekoRules],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended', 'prettier/react', ...ekoRules],
 };
