@@ -55,5 +55,32 @@ module.exports = {
     // Re-defining airbnb to enable `noUselessIndex` option introduced with
     // eslint-config-import v2.17.0
     'import/no-useless-path-segments': ['error', { commonjs: true, noUselessIndex: true }],
+
+    // Use this rule to prevent importing packages through relative paths.
+    // It's useful in Yarn/Lerna workspaces, were it's possible to import a sibling package
+    // using ../package relative path, while direct package is the correct one.
+    // Ref: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-relative-packages.md
+    //
+    // airbnb-base@14.2.1 (will be enabled with major update)
+    // 'import/no-relative-packages': 'off'
+    //
+    // Decision to enable (by the majority, second vote)
+    // Even workspaces usage is not a common practice at the moment in the team,
+    // the growth of our projects shows that it will be useful in the future.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-import#2-23-0-no-relative-packages
+    'import/no-relative-packages': 'error',
+
+    // Reports the use of import declarations with CommonJS exports in any module
+    // except for the main module.
+    // Ref: https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-import-module-exports.md
+    //
+    // airbnb-base@14.2.1 (will be enabled with major update)
+    // 'import/no-import-module-exports': ['off', {
+    //   exceptions: [],
+    // }],
+    //
+    // Decision to enable (by the majority, second vote)
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-import#2-23-0-no-import-module-exports
+    'import/no-import-module-exports': ['error', { exceptions: [] }],
   },
 };
