@@ -4,11 +4,11 @@ module.exports = {
     browser: true,
   },
   parserOptions: {
-    ecmaVersion: 9,
+    ecmaVersion: 2021,
     sourceType: 'module',
   },
   globals: {
-    expect: true,
+    expect: 'readonly',
   },
   rules: {
     // Ref: https://eslint.org/docs/rules/no-underscore-dangle
@@ -47,12 +47,17 @@ module.exports = {
     // Mostly to call disposers of MobX `observe`, `reaction`, `when` etc. Sometimes we define
     // them conditionally and need to call when component unmounts (if a disposer exist):
     // dispose && dispose();
+    // UPD@3.0.0: added enforceForJSX (the option is confusing - the rule was already reporting JSX)
+    //            It is not 100% clear what exact enhancement this option brings. It is added with
+    //            `false` as default - what should disable the correction
+    //            that rule already has been doing. To mitigate it we add option as enabled.
     'no-unused-expressions': [
       'error',
       {
         allowShortCircuit: true,
         allowTernary: false,
         allowTaggedTemplates: false,
+        enforceForJSX: true,
       },
     ],
 
@@ -223,67 +228,15 @@ module.exports = {
     // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint#eslint-7-3-0-no-unreachable-loop
     'no-unreachable-loop': ['error', { ignore: [] }],
 
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
+    // This rule aims to detect some cases where the use of optional chaining
+    // doesn't prevent runtime errors.
+    // Ref: https://eslint.org/docs/rules/no-unsafe-optional-chaining
     //
     // airbnb-base@14.2.1 (will be enabled with major update)
+    // 'no-unsafe-optional-chaining': ['off', { disallowArithmeticOperators: true }]
     //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
-
-    //
-    // Ref:
-    //
-    // airbnb-base@14.2.1 (will be enabled with major update)
-    //
-    //
-    // Decision to enable (by the majority)
-    //
+    // Decision to enable with disallowArithmeticOperators (by the majority)
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint#eslint-7-15-0-no-unsafe-optional-chaining
+    'no-unsafe-optional-chaining': ['error', { disallowArithmeticOperators: true }],
   },
 };

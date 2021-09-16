@@ -29,11 +29,13 @@ Make sure that you do not change configuration or you will run in a bunch of con
 ### Step 2. Mandatory. To apply base set of rules.
 
 **npm@6**
+
 ```
 npx install-peerdeps --save-dev --save-exact "--save-prefix=''" eslint-config-eko@3.0.0
 ```
 
 **npm@7**
+
 ```
 npm install --save-dev --save-exact --save-peer  eslint-config-eko@3.0.0
 ```
@@ -47,11 +49,13 @@ npm install --save-dev --save-exact eslint-config-airbnb@18.2.1 eslint-plugin-js
 ### Step 4. In `.eslintrc.json` extend eko configuration:
 
 **Only base set of rules**
+
 ```json
 "extends": ["eko"]
 ```
 
 **Base + React set of rules**
+
 ```json
 "extends": ["eko/react"]
 ```
@@ -88,6 +92,17 @@ In package.json:
 
 ## Hints
 
+### Track performance of individual rules
+
+In case you encounter slow eslint execution on your project try to use
+[ESLint built-in CLI method](https://eslint.org/docs/developer-guide/working-with-rules#per-rule-performance)
+to track performance of individual rules.
+
+```
+TIMING=1 eslint lib
+
+```
+
 ### import/no-unresolved and root path synonym
 
 If you want to use root synonyms like:
@@ -101,6 +116,7 @@ import Example from '~/some/example.js';
 ```
 
 Run:
+
 ```
 npm i --save-dev babel-plugin-root-import eslint-import-resolver-babel-plugin-root-import
 ```
