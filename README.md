@@ -149,3 +149,5 @@ Add to `.eslintrc`:
 - Provide reference to documentation.
 - Provide Airbnb declaration (and they reasoning).
 - Provide explanation why the decision to alter a rule was made.
+
+## [CHANGELOG](https://github.com/EkoCommunications/EkoESLintConfig/blob/master/CHANGELOG.md)
