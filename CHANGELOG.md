@@ -8,12 +8,22 @@
 - **[config]** prettier - define `"arrowParens": "avoid"` as default value changed
 - **[config]** prettier - new config `"embeddedLanguageFormatting": "auto"`
 
-- **[new rule]** 'default-case-last': 'error'
-- **[new rule]** 'no-loss-of-precision': 'error'
-- **[new rule]** 'no-promise-executor-return': 'error'
-- **[new rule]** 'no-unreachable-loop': ['error', { ignore: [] }]
-- **[new rule]** 'no-unsafe-optional-chaining': ['error', { disallowArithmeticOperators: true }]
-- **[new rule]** 'import/no-relative-packages': 'error'
-- **[new rule]** 'import/no-import-module-exports': ['error', { exceptions: [] }]
+- **[new rule]** default-case-last
+- **[new rule]** no-loss-of-precision
+- **[new rule]** no-promise-executor-return
+- **[new rule]** no-unreachable-loop
+- **[new rule]** no-unsafe-optional-chaining
+- **[new rule]** import/no-relative-packages
+- **[new rule]** import/no-import-module-exports
+- **[new rule]** react/sort-prop-types
+- **[new rule]** react/jsx-sort-props
+- **[new rule]** react/no-unstable-nested-components
+- **[new rule]** react/jsx-no-constructed-context-values
+- **[new rule]** react/function-component-definition
+
+- **[new option]** react/jsx-no-target-blank: { forms: true, warnOnSpreadAttributes: true }
+- **[new option]** react/jsx-filename-extension: { allow: 'as-needed' }
+
+- **[configuration]** react/sort-comp sorting extended with new pattern '/^handle.+$/'
 
 - **[chore]** initiate CHANGELOG
