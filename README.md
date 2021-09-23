@@ -100,10 +100,9 @@ to track performance of individual rules.
 
 ```
 TIMING=1 eslint lib
-
 ```
 
-### import/no-unresolved and root path synonym
+### Root path synonym and import/no-unresolved
 
 If you want to use root synonyms like:
 
@@ -114,6 +113,45 @@ import Example from '../../../some/example.js';
 // to
 import Example from '~/some/example.js';
 ```
+
+#### Option 1
+
+Install eslint-import-resolver-webpack
+
+```
+npm install --save-dev eslint-import-resolver-webpack
+
+```
+
+Add this to your webpack configuration:
+
+```javascript
+resolve: {
+  alias: {
+    // pattern
+    '~': '<full_path_to_project_folder>',
+    // example 1
+    '~': path.resolve(process.cwd(), '<project_folder>'),
+    // example 2
+    '~': path.resolve(__dirname, '<project_folder>'),
+  },
+},
+```
+
+Add this to your eslint configuration:
+
+```javascript
+// For more options check https://www.npmjs.com/package/eslint-import-resolver-webpack
+settings: {
+  'import/resolver': {
+    webpack: {
+      config: '<path_to_webpack',
+    },
+  },
+},
+```
+
+#### Option 2 (deprecated)
 
 Run:
 
