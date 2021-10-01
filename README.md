@@ -31,7 +31,7 @@ Make sure that you do not change configuration or you will run in a bunch of con
 **npm@6**
 
 ```
-npx install-peerdeps --save-dev --save-exact "--save-prefix=''" eslint-config-eko@3.0.0
+npx install-peerdeps --dev eslint-config-eko@3.0.0 --extra-args "--save-exact"
 ```
 
 **npm@7**

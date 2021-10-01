@@ -76,7 +76,11 @@ module.exports = {
     //
     // 3.0.0: Add new option { 'allow': 'as-needed' } as natural useful rule extension.
     // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-21-0-react-jsx-filename-extension-allow-option
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'], allow: 'as-needed' }],
+    //
+    // 3.0.0: Changed { 'allow': 'always' }
+    // Option has sense if we allow only '.jsx' in the { extensions: [] }.
+    // In our case { allow: 'as-needed' } is going to report all '.js' files without JSX syntax.
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'], allow: 'always' }],
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     //

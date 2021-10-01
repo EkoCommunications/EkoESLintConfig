@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-eko",
-  "version": "3.0.0-rc1",
+  "version": "3.0.0-rc2",
   "description": "ESLint configuration for Amity JS apps",
   "main": "index.js",
   "scripts": {
