@@ -1,6 +1,9 @@
-# 3.0.0 / 2021-09 #13
+# 3.0.0 / 2021-09
+
+https://github.com/EkoCommunications/EkoESLintConfig/pull/13
 
 After this upgrade you can face an issues with your Code Editor and Prettier. The reason is that Prettier dropped support for Node@10.
+
 If you have Prettier installed globally, your Code Editor plugin might use that global installation which relies on default system Node version (at least it is true for Sublime Text). If you use `nvm` it can cause confusion as `node -v` in the command line will show you one version (let's say Node@12) but Code Editor Prettier plugin will complain that Prettier require Node > v10.x (if your default system Node version still older).
 
 - **[deps]** update: `eslint@7.32.0`, `eslint-config-airbnb-base@14.2.1`, `eslint-config-prettier@8.3.0`, `eslint-plugin-import@2.24.2`, `eslint-plugin-prettier@4.0.0`, `prettier@2.4.0`
