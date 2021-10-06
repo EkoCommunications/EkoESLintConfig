@@ -1,13 +1,13 @@
 {
   "name": "eslint-config-eko",
-  "version": "3.0.0-rc2",
+  "version": "3.0.0",
   "description": "ESLint configuration for Amity JS apps",
   "main": "index.js",
   "scripts": {
-    "eslint-check": "TIMING=20 eslint .",
-    "eslint-fix": "eslint . --fix",
-    "prettier-check": "prettier . --check",
-    "prettier-fix": "prettier . --write"
+    "lint": "TIMING=20 eslint .",
+    "lint:fix": "TIMING=20 eslint . --fix",
+    "prettier": "prettier . --check",
+    "prettier:fix": "prettier . --write"
   },
   "repository": {
     "type": "git",
