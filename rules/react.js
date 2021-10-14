@@ -22,7 +22,7 @@ module.exports = {
     //   skipUndeclared: false
     // }],
     //
-    // Considering that a lot of existing components does not have proptypes we define
+    // Considering that a lot of existing components does not have PropTypes we define
     // "skipUndeclared: true" to avoid "dangerous" refactoring.
     'react/prop-types': [
       'error',
@@ -40,6 +40,9 @@ module.exports = {
     // Decorators do not play any role in ordering and react-eslint team are not planning to
     // change it (what has sense). But we defining 'instance-variables' as first item in the `order`
     // option. It will work for all instance variables (with or without decorators).
+    //
+    // 3.0.0: New ordering option '/^handle.+$/' added to align with airbnb@18.2.1 update.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-config-airbnb
     'react/sort-comp': [
       'error',
       {
@@ -48,6 +51,7 @@ module.exports = {
           'static-variables',
           'static-methods',
           'lifecycle',
+          '/^handle.+$/',
           '/^on.+$/',
           'getters',
           'setters',
@@ -62,14 +66,21 @@ module.exports = {
       },
     ],
 
+    // Restrict file extensions that may contain JSX
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
     //
     // Airbnb:
     // 'react/jsx-filename-extension': ['error', { extensions: ['.jsx'] }],
     //
-    // Shows an error when we find JSX components outside of the following file extensions
-    // Re-defined as we use the `.js` extension for JSX files.
-    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    // We re-defined as we use the `.js` extension for JSX files.
+    //
+    // 3.0.0: Add new option { 'allow': 'as-needed' } as natural useful rule extension.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-21-0-react-jsx-filename-extension-allow-option
+    //
+    // 3.0.0: Changed { 'allow': 'always' }
+    // Option has sense if we allow only '.jsx' in the { extensions: [] }.
+    // In our case { allow: 'as-needed' } is going to report all '.js' files without JSX syntax.
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'], allow: 'always' }],
 
     // Ref: https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
     //
@@ -172,5 +183,121 @@ module.exports = {
     //
     // An unanimous decision to enable.
     'react/jsx-no-useless-fragment': 'error',
+
+    // This option enforces a specific function type for function components.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+    //
+    // airbnb@18.2.1 (will be enabled with major update)
+    // 'react/function-component-definition': ['off', {
+    //   namedComponents: 'function-expression',
+    //   unnamedComponents: 'function-expression',
+    // }],
+    //
+    // The decision to enable rule chosen by the majority. Each option also chosen by majority.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-18-0-react-function-component-definition
+    'react/function-component-definition': [
+      'error',
+      {
+        namedComponents: 'arrow-function',
+        unnamedComponents: 'arrow-function',
+      },
+    ],
+
+    // This rule prevents non-stable values (i.e. object identities) from
+    // being used as a value for Context.Provider.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-constructed-context-values.md
+    //
+    // airbnb@18.2.1 (will be enabled with major update)
+    // 'react/jsx-no-constructed-context-values': 'off'
+    //
+    // The decision to enable rule chosen by the majority.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-22-0-jsx-no-constructed-context-values
+    'react/jsx-no-constructed-context-values': 'error',
+
+    // Prevent usage of unsafe target='_blank'. This rules requires that you accompany
+    // target='_blank' attributes with rel='noreferrer'
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-target-blank.md
+    //
+    // airbnb@18.2.1
+    // 'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }]
+    //
+    // We redefine the rule to enable new options, not used by AirBnb.
+    // These options strengthen the protection and close the vulnerable workarounds.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-22-0-jsx-no-target-blank-warnonspreadattributes
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-25-0-jsx-no-target-blank-forms
+    'react/jsx-no-target-blank': [
+      'error',
+      {
+        enforceDynamicLinks: 'always',
+        warnOnSpreadAttributes: true,
+        links: true,
+        forms: true,
+      },
+    ],
+
+    // Prevent creating unstable components inside components.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unstable-nested-components.md
+    //
+    // airbnb@18.2.1 (will be enabled with major update)
+    // 'react/no-unstable-nested-components': 'off'
+    //
+    // The decision to enable rule chosen by the majority with { allowAsProps: true }. The option
+    // is enabled to avoid manual refactoring of the existing codebase as it can populate bugs
+    // if refactoring is done wrong. It is chosen as more safe path to enable this new rule.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/eslint-plugin-react#7-23-0-no-unstable-nested-components
+    'react/no-unstable-nested-components': ['error', { allowAsProps: true }],
+
+    // Enforce props alphabetical sorting.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-sort-props.md
+    //
+    // airbnb@18.2.1
+    // 'react/jsx-sort-props': ['off', {
+    //   ignoreCase: true,
+    //   callbacksLast: false,
+    //   shorthandFirst: false,
+    //   shorthandLast: false,
+    //   noSortAlphabetically: false,
+    //   reservedFirst: true,
+    // }],
+    //
+    // Proposal to enable the rule was supported my majority of the team, with relaxed options:
+    // no alphabetical, without restrictions for shorthand props.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/proposals#2
+    'react/jsx-sort-props': [
+      'error',
+      {
+        noSortAlphabetically: true,
+        ignoreCase: true,
+        reservedFirst: true,
+        shorthandFirst: false,
+        shorthandLast: false,
+        callbacksLast: true,
+      },
+    ],
+
+    // Enforce propTypes declarations sorting.
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-prop-types.md
+    //
+    // airbnb@18.2.1
+    // 'react/sort-prop-types': ['off', {
+    //   ignoreCase: true,
+    //   callbacksLast: false,
+    //   requiredFirst: false,
+    //   sortShapeProp: true,
+    // }],
+    //
+    // Following decision to enable react/jsx-sort-props, it was decided to enable
+    // react/sort-prop-types in the same or the most compatible way as react/jsx-sort-props.
+    // https://app.gitbook.com/@eko/s/amity-web-team/eslint/update-2021-august/proposals#3
+    'react/sort-prop-types': [
+      'error',
+      {
+        noSortAlphabetically: true,
+        ignoreCase: true,
+        requiredFirst: false,
+        sortShapeProp: false,
+        callbacksLast: true,
+      },
+    ],
   },
 };
